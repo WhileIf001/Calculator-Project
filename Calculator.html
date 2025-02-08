@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>calc</title>
+    <style>
+      :root {
+        --Button-them : url('/Them/Snow-Button.jpg');
+        --calc-them: url('/Them/Snow-Calc.jpg');
+        --ThemS-them: url('/Them/Fall3.png');
+        --clr-Button: #707070;
+        --clr-Button-hover: #00FFEC;
+        --clr-display: #08E2E6;
+        --clr-ThemS: #FFAE00;
+        --clr-border: aqua;
+        --clr-ThemS-B: #FFA300;
+        --clr-body-back: white;
+        --Box-shadow-style: black;
+        --themS-ht: 45px;
+        --calculator-btns-ht: 50px;
+        --display-ht: 100px;
+        --display-fs: 3rem;
+        --calculator-btns-fs: 28px;
+      }
+      @font-face{
+        font-family: 'wargate';
+        src: url('/Font/Wargate.ttf');
+        format: 'ttf';
+      }
+      body{
+        padding: 0;
+        margin: 0;
+        background: var(--clr-body-back);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body.Fall {
+        --Button-them : url('/Them/Button-back.jpg');
+        --calc-them: url('/Them/display-back.jpg');
+        --ThemS-them: url('/Them/Snow1.png');
+        --clr-Button: black;
+        --clr-Button-hover: #FF9B00;
+        --clr-display: #FFA908;
+        --clr-ThemS: #4ECAFF;
+        --clr-border: #FFA908;
+        --clr-ThemS-B: #09B5FF;
+        --clr-body-back: #F08700;
+        --Box-shadow-style: rgba(255, 255, 0, 1);
+      }
+      body, .formBox, .calc, .display, .themSwicher, .btns {
+        transition: 0.5s;
+      }
+      .formBox {
+        border: 1px solid var(--clr-border);
+        border-radius: 20px;
+        background: var(--calc-them);
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 50px;
+      }
+      .themSwicher {
+        font-size: 20px;
+        width: 50%;
+        height: var(--themS-ht);
+        border-radius: 10px;
+        border: 2px solid var(--clr-ThemS-B);
+        background: var(--ThemS-them);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: right;
+        color: var(--clr-ThemS);
+        padding: 0px;
+        font-family: 'wargate';
+      }
+      .calc{
+        background: var(--calc-them);
+        background-size: 100%;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      .display{
+        color: var(--clr-display);
+        font-size: var(--display-fs);
+        border: 2px solid var(--clr-border);
+        border-radius: 8px;
+        outline: none;
+        text-align: left;
+        font-family: 'wargate';
+        width: 88%;
+        height: var(--display-ht);
+        background: var(--calc-them);
+        background-size: 100%;
+        background-position: left;
+      }
+      .btns {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      input[type="button"] {
+        padding: 0;
+        font-size: var(--calculator-btns-fs);
+        background: var(--Button-them);
+        background-size: 100%;
+        color: var(--clr-Button);
+        width: 21%;
+        border: none;
+        height: var(--calculator-btns-ht);
+        border-radius: 8px;
+        text-align: center;
+        font-family: 'wargate';
+        box-shadow: 0px 5px var(--Box-shadow-style);
+        transition: 0.1s;
+      }
+      input[type="button"]:active{
+        box-shadow: 0px 2px var(--Box-shadow-style);
+        transform: translateY(5px);
+      }
+      input[type="button"]:hover {
+        color: var(--clr-Button-hover);
+      }
+      input[type="button"]:nth-last-of-type(1){
+        width: 44.5%;
+        background: var(--Button-them);
+        background-size: 100%;
+      }
+      @media (max-width: 576px){
+        :root {
+          --display-ht: 75px;
+          --display-fs: 2rem;
+          --themS-ht: 35px;
+          --calculator-btns-ht: 32px;
+          --calculator-btns-fs: 20px;
+        }
+        .formBox {
+          max-width: 60%;
+        }
+      }
+      @media (min-width: 576px){
+        :root {
+          --display-ht: 85px;
+          --display-fs: 2.4rem;
+          --themS-ht: 38px;
+          --calculator-btns-ht: 42px;
+          --calculator-btns-fs: 25px;
+        }
+        .formBox {
+          max-width: 55%;
+        }
+      }
+      @media (min-width: 768px){
+        :root {
+          --display-ht: 90px;
+          --display-fs: 2.6rem;
+          --themS-ht: 45px;
+          --calculator-btns-ht: 48px;
+          --calculator-btns-fs: 27px;
+        }
+        .formBox {
+          max-width: 50%;
+        }
+      }
+      @media (min-width: 992px){
+        :root {
+          --display-ht: 100px;
+          --display-fs: 3rem;
+          --themS-ht: 50px;
+          --calculator-btns-ht: 52px;
+          --calculator-btns-fs: 30px;
+        }
+        .formBox {
+          max-width: 45%;
+        }
+      }
+      @media (min-width: 1200px){
+        :root {
+          --display-ht: 110px;
+          --display-fs: 3.2rem;
+          --themS-ht: 55px;
+          --calculator-btns-ht: 55px;
+          --calculator-btns-fs: 32px;
+        }
+        .formBox {
+          max-width: 35%;
+        }
+      }
+      @media (min-width: 1400px){
+        :root {
+          --display-ht: 120px;
+          --display-fs: 3.5rem;
+          --themS-ht: 58px;
+          --calculator-btns-ht: 57px;
+          --calculator-btns-fs: 35px;
+        }
+        .formBox {
+          max-width: 32%;
+        }
+      }
+    </style>
+    <script>
+      function writeOninput(V){
+        document.querySelector('.display').value += V;
+      }
+      function playSound(){
+        var sound = new Audio('/KeySound/Key.mp3');
+        sound.play();
+      }
+      function AC(){
+        document.querySelector('.display').value = "";
+      }
+      function C(){
+        document.querySelector('.display').value = document.querySelector('.display').value.slice(0, -1);
+      }
+      function equal(){
+        var Eq = document.querySelector('.display').value = eval(document.querySelector('.display').value.replace('×', '*').replace('÷', '/'));
+        if (Eq == undefined){
+        document.querySelector('.display').value = 'ERROR!';
+        }
+      }
+    </script>
+</head>
+
+<body>
+  <div class="formBox">
+    <form class="calc">
+      <input class="display" disabled value="" type="text"/>
+      <section class="btns">
+        <input class="AC" type="button" value="AC" onclick="AC(),playSound()" />
+        <input class="C" type="button" value="C" onclick="C(),playSound()" />
+        <input type="button" value="%" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="-" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="9" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="8" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="7" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="×" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="6" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="5" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="4" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="÷" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="3" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="2" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="1" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="+" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="0" onclick="writeOninput(value),playSound()" />
+        <input type="button" value="." onclick="writeOninput(value),playSound()" />
+        <input class="equal" type="button" value="=" onclick="equal(),playSound()" />
+      </section>
+    </form>
+    <button class="themSwicher">Fall Them</button>
+  </div>
+  <script>
+    var ThemS = document.querySelector('.themSwicher');
+    function main(){
+      ThemS.addEventListener('click', ()=>{
+      document.querySelector('body').classList.toggle('Fall');
+      if(ThemS.innerText == 'Fall Them'){
+        ThemS.innerText='Snow Them'
+      }else{
+        ThemS.innerText='Fall Them'
+      }
+    })
+    };
+    document.addEventListener('DOMContentLoaded', main)
+  </script>
+</body>
+
+</html>
