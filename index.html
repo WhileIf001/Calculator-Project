@@ -7,9 +7,9 @@
     <title>calc</title>
     <style>
       :root {
-        --Button-them : url('/Them/Snow-Button.jpg');
-        --calc-them: url('/Them/Snow-Calc.jpg');
-        --ThemS-them: url('/Them/Fall3.png');
+        --Button-them : url('Them/Snow-Button.jpg');
+        --calc-them: url('Them/Snow-Calc.jpg');
+        --ThemS-them: url('Them/Fall3.png');
         --clr-Button: #707070;
         --clr-Button-hover: #00FFEC;
         --clr-display: #08E2E6;
@@ -26,7 +26,7 @@
       }
       @font-face{
         font-family: 'wargate';
-        src: url('/Font/Wargate.ttf');
+        src: url('Font/Wargate.ttf');
         format: 'ttf';
       }
       body{
@@ -39,9 +39,9 @@
         align-items: center;
       }
       body.Fall {
-        --Button-them : url('/Them/Button-back.jpg');
-        --calc-them: url('/Them/display-back.jpg');
-        --ThemS-them: url('/Them/Snow1.png');
+        --Button-them : url('Them/Button-back.jpg');
+        --calc-them: url('Them/display-back.jpg');
+        --ThemS-them: url('Them/Snow1.png');
         --clr-Button: black;
         --clr-Button-hover: #FF9B00;
         --clr-display: #FFA908;
@@ -217,7 +217,7 @@
         document.querySelector('.display').value += V;
       }
       function playSound(){
-        var sound = new Audio('/KeySound/Key.mp3');
+        var sound = new Audio('KeySound/Key.mp3');
         sound.play();
       }
       function AC(){
